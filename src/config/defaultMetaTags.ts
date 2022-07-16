@@ -1,4 +1,4 @@
-export const appHostname = process.env.VERCEL_URL || 'http://localhost';
+export const appHostname = 'https://d1a-template-next-ts.vercel.app';
 
 const defaultMetaTags = {
     name: 'D1A — NextJS Template',
