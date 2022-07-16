@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     return (
         <>
             <MetaHead />
-            <main className='w-full h-screen flex lg:justify-center bg-blue-400'>
+            <main className='w-full min-h-screen flex lg:justify-center items-center bg-blue-400'>
                 <div className='container h-full flex lg:justify-center lg:items-center flex-wrap gap-x-6 lg:gap-x-20 gap-y-6 px-4 py-4'>
                     <div className='flex flex-col gap-y-6'>
                         <Heading type='h1' text='Heading 1' />

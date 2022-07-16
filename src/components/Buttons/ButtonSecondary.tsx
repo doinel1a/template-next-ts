@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useStateContext from '../../context/ContextProvider';
 
-import Span from '../Text/Paragraph';
+import Span from '../Text/Span';
 
 const ButtonSecondary: React.FC<{
     type: 'button' | 'submit';
