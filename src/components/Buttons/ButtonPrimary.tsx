@@ -4,17 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useStateContext from '../../context/ContextProvider';
 
-import Paragraph from '../Text/Paragraph';
+import Span from '../Text/Span';
 
 const ButtonPrimary: React.FC<{
     type: 'button' | 'submit';
     text: string;
     icon?: IconProp;
-    paragraphCss?: string;
+    spanCss?: string;
     iconCss?: string;
     stateCss?: string;
     onClick?: MouseEventHandler;
-}> = ({ type, text, icon, paragraphCss, iconCss, stateCss, onClick }) => {
+}> = ({ type, text, icon, spanCss, iconCss, stateCss, onClick }) => {
     const { isDarkMode } = useStateContext();
 
     return (
@@ -46,9 +46,9 @@ const ButtonPrimary: React.FC<{
             ) : (
                 <></>
             )}
-            <Paragraph
+            <Span
                 text={text}
-                customCss={`font-medium ${paragraphCss ? paragraphCss : ''}`}
+                customCss={`font-medium ${spanCss ? spanCss : ''}`}
             />
         </button>
     );

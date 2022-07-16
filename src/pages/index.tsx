@@ -1,18 +1,19 @@
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { NextPage } from 'next';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+
+import MetaHead from '../components/MetaHead';
+
+import Heading from '../components/Text/Heading';
+import Paragraph from '../components/Text/Paragraph';
 import ButtonPrimary from '../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../components/Buttons/ButtonSecondary';
 import ButtonTertiary from '../components/Buttons/ButtonTertiary';
-
-import MetaHead from '../components/MetaHead';
-import Heading from '../components/Text/Heading';
-import Paragraph from '../components/Text/Paragraph';
 
 const Home: NextPage = () => {
     return (
         <>
             <MetaHead />
-            <main className='w-full h-screen flex lg:justify-center bg-blue-400 overflow-auto'>
+            <main className='w-full h-screen flex lg:justify-center bg-blue-400'>
                 <div className='container h-full flex lg:justify-center lg:items-center flex-wrap gap-x-6 lg:gap-x-20 gap-y-6 px-4 py-4'>
                     <div className='flex flex-col gap-y-6'>
                         <Heading type='h1' text='Heading 1' />
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
                             type='button'
                             text='Button Primary'
                             icon={faCheckCircle}
-                            paragraphCss='!text-white'
+                            spanCss='!text-white'
                             iconCss='!text-white'
                         />
                         <ButtonSecondary

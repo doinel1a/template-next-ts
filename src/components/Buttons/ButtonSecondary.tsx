@@ -4,17 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useStateContext from '../../context/ContextProvider';
 
-import Paragraph from '../Text/Paragraph';
+import Span from '../Text/Paragraph';
 
 const ButtonSecondary: React.FC<{
     type: 'button' | 'submit';
     text: string;
     icon?: IconProp;
-    paragraphCss?: string;
+    spanCss?: string;
     iconCss?: string;
     stateCss?: string;
     onClick?: MouseEventHandler;
-}> = ({ type, text, icon, paragraphCss, iconCss, stateCss, onClick }) => {
+}> = ({ type, text, icon, spanCss, iconCss, stateCss, onClick }) => {
     const { isDarkMode } = useStateContext();
 
     return (
@@ -23,11 +23,7 @@ const ButtonSecondary: React.FC<{
             className={`
                 flex justify-center items-center px-7 md:px-8 lg:px-9 py-3 md:py-4 lg:py:5 rounded-lg border bg-transparent transition-colors group
                 ${isDarkMode ? 'border-white' : 'border-black'}
-                ${
-                    stateCss
-                        ? stateCss
-                        : 'bg-white hover:bg-gray-200 focus:bg-gray-200'
-                }
+                ${stateCss ? stateCss : 'hover:bg-gray-400 focus:bg-gray-400'}
             `}
             onClick={onClick}
         >
@@ -47,9 +43,9 @@ const ButtonSecondary: React.FC<{
             ) : (
                 <></>
             )}
-            <Paragraph
+            <Span
                 text={text}
-                customCss={`font-medium  ${paragraphCss ? paragraphCss : ''}`}
+                customCss={`font-medium  ${spanCss ? spanCss : ''}`}
             />
         </button>
     );
