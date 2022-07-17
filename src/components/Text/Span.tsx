@@ -9,7 +9,7 @@ const Span: React.FC<{ text: string; customCss?: string }> = ({
     return (
         <span
             className={`
-                md:text-lg lg:text-xl transition-colors
+                text-sm md:text-base lg:text-lg font-medium transition-colors
                 ${isDarkMode ? 'text-primary-dark' : 'text-primary-light'}
                 ${customCss ? customCss : ''} 
             `}

@@ -21,7 +21,7 @@ const ButtonPrimary: React.FC<{
         <button
             type={type}
             className={`
-                flex justify-center items-center px-5 md:px-6 lg:px-7 py-2 md:py-3 lg:py:4 rounded-lg transition-colors group
+                btn group 
                 ${
                     stateCss
                         ? stateCss
@@ -34,7 +34,7 @@ const ButtonPrimary: React.FC<{
                 <FontAwesomeIcon
                     icon={icon}
                     className={`
-                        w-4 md:w-5 lg:w-6 mr-3 transition-colors
+                        w-4 md:w-5 lg:w-6 mr-2 transition-colors
                         ${
                             isDarkMode
                                 ? 'text-primary-dark'
@@ -46,12 +46,7 @@ const ButtonPrimary: React.FC<{
             ) : (
                 <></>
             )}
-            <Span
-                text={text}
-                customCss={`text-sm md:text-base lg:text-lg font-medium ${
-                    spanCss ? spanCss : ''
-                }`}
-            />
+            <Span text={text} customCss={spanCss ? spanCss : ''} />
         </button>
     );
 };
