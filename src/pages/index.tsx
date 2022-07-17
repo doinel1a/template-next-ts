@@ -1,8 +1,10 @@
 import { NextPage } from 'next';
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { useState } from 'react';
+import { faCheckCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 import MetaHead from '../components/MetaHead';
 
+import Modal from '../components/Modal';
 import Heading from '../components/Text/Heading';
 import Paragraph from '../components/Text/Paragraph';
 import ButtonPrimary from '../components/Buttons/ButtonPrimary';
@@ -10,10 +12,16 @@ import ButtonSecondary from '../components/Buttons/ButtonSecondary';
 import ButtonTertiary from '../components/Buttons/ButtonTertiary';
 
 const Home: NextPage = () => {
+    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+
     return (
         <>
             <MetaHead />
-            <main className='w-full min-h-screen flex lg:justify-center items-center bg-blue-400'>
+            <main className='w-full min-h-screen z-0 flex lg:justify-center items-center bg-blue-400'>
+                <Modal
+                    isModalVisible={isModalVisible}
+                    setIsModalVisible={setIsModalVisible}
+                />
                 <div className='container h-full flex lg:justify-center lg:items-center flex-wrap gap-x-6 lg:gap-x-20 gap-y-6 px-4 py-4'>
                     <div className='flex flex-col gap-y-6'>
                         <Heading type='h1' text='Heading 1' />
@@ -30,9 +38,12 @@ const Home: NextPage = () => {
                         <ButtonPrimary
                             type='button'
                             text='Button Primary'
-                            icon={faCheckCircle}
+                            icon={faEnvelope}
                             spanCss='!text-white'
                             iconCss='!text-white'
+                            onClick={() =>
+                                setIsModalVisible((prevState) => !prevState)
+                            }
                         />
                         <ButtonSecondary
                             type='button'
