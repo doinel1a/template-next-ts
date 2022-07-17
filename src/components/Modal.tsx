@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import {
+    Dispatch,
+    SetStateAction,
+    SyntheticEvent,
+    useEffect,
+    useRef,
+} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,17 +19,30 @@ interface IModalProps {
     setIsModalVisible: Dispatch<SetStateAction<boolean>>;
 }
 
+interface FocusEvent<T = Element> extends SyntheticEvent<T> {
+    relatedTarget: Node | null;
+    target: EventTarget & T;
+}
+
 const Modal: React.FC<IModalProps> = ({
     isModalVisible,
     setIsModalVisible,
 }) => {
     const { isDarkMode } = useStateContext();
+    const modalRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         isModalVisible
             ? document.body.classList.add('overflow-hidden')
             : document.body.classList.remove('overflow-hidden');
     }, [isModalVisible]);
+
+    const handleFocus = (e: FocusEvent<HTMLDivElement>) => {
+        modalRef.current?.setAttribute('tabindex', '0');
+
+        if (!modalRef.current?.contains(e.relatedTarget))
+            modalRef.current?.focus();
+    };
 
     return (
         <div
@@ -34,7 +53,11 @@ const Modal: React.FC<IModalProps> = ({
         >
             <div className='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity'></div>
 
-            <div className='fixed z-10 inset-0 overflow-y-auto'>
+            <div
+                ref={modalRef}
+                onBlur={handleFocus}
+                className='fixed z-10 inset-0 overflow-y-auto'
+            >
                 <div className='flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0'>
                     <div
                         className={`relative rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full ${
@@ -78,11 +101,11 @@ const Modal: React.FC<IModalProps> = ({
                                 </div>
                             </div>
                         </div>
-                        <div className='flex flex-col sm:flex-row-reverse gap-x-4 gap-y-2 px-4 py-3 sm:px-5 bg-gray-300'>
+                        <div className='flex flex-col sm:flex-row-reverse border-2 gap-x-4 gap-y-2 px-4 py-3 sm:px-5 bg-gray-300'>
                             <ButtonPrimary
                                 type='button'
                                 text='Deactivate'
-                                stateCss='w-full sm:w-auto bg-red-600'
+                                stateCss='w-full sm:w-auto bg-red-500 hover:bg-red-700 focus:bg-red-700'
                                 onClick={() =>
                                     setIsModalVisible((prevState) => !prevState)
                                 }
