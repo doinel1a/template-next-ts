@@ -16,7 +16,7 @@ const FourOuFour: NextPage = () => {
             <MetaHead title='404 — Page not found' />
             <main
                 className={` w-full main-h fixed flex flex-col justify-center items-center flex-1 p-3 transition-colors ${
-                    isDarkMode ? 'bg-neutral-700' : 'bg-slate-100'
+                    isDarkMode ? 'bg-secondary-dark' : 'bg-secondary-light'
                 } `}
             >
                 <section className='container flex flex-col items-center gap-y-6'>

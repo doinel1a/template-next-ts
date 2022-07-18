@@ -11,6 +11,9 @@ import Paragraph from '../components/Text/Paragraph';
 import ButtonPrimary from '../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../components/Buttons/ButtonSecondary';
 import ButtonTertiary from '../components/Buttons/ButtonTertiary';
+import Form from '../components/Form/Form';
+import InputText from '../components/Form/InputText';
+import InputNumber from '../components/Form/InputNumber';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useStateContext();
@@ -21,7 +24,7 @@ const Home: NextPage = () => {
             <MetaHead />
             <main
                 className={`
-                    w-full min-h-screen z-0 flex lg:justify-center items-center transition-colors
+                    w-full min-h-screen z-0 flex lg:justify-center items-center mb-[var(--footer-h)] transition-colors
                     ${isDarkMode ? 'bg-secondary-dark' : 'bg-secondary-light'}
                 `}
             >
@@ -29,7 +32,7 @@ const Home: NextPage = () => {
                     isModalVisible={isModalVisible}
                     setIsModalVisible={setIsModalVisible}
                 />
-                <div className='container h-full flex lg:justify-center lg:items-center flex-wrap gap-x-6 lg:gap-x-20 gap-y-6 px-4 py-4'>
+                <section className='w-full h-full flex lg:justify-center lg:items-center flex-wrap gap-x-6 lg:gap-x-20 gap-y-6 px-4 py-4'>
                     <div className='flex flex-col gap-y-6'>
                         <Heading type='h1' text='Heading 1' />
                         <Heading type='h2' text='Heading 2' />
@@ -63,7 +66,27 @@ const Home: NextPage = () => {
                             icon={faCheckCircle}
                         />
                     </div>
-                </div>
+                    <Form onSubmit={(e) => e.preventDefault()}>
+                        <InputText
+                            id='test1'
+                            label='Test 1'
+                            value='Test 1'
+                            clean={true}
+                        />
+                        <InputText
+                            id='test2'
+                            label='Test 2'
+                            value='Test 2'
+                            clean={true}
+                        />
+                        <InputNumber
+                            id='test3'
+                            label='Test 3'
+                            value='Test 3'
+                            clean={true}
+                        />
+                    </Form>
+                </section>
             </main>
         </>
     );

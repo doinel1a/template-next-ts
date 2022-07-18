@@ -17,11 +17,16 @@ const Header: React.FC = () => {
         >
             <div className='h-full container flex items-center'>
                 <nav className='mr-auto'>
-                    <Logo text='<D1A />' ariaLabel='Homepage' />
+                    <Logo
+                        text='<D1A />'
+                        title='Homepage'
+                        ariaLabel='Homepage'
+                    />
                 </nav>
                 <ButtonIcon
                     type='button'
                     icon={isDarkMode ? faSun : faMoon}
+                    title='Set theme'
                     ariaLabel={
                         isDarkMode
                             ? 'Set website in light mode'
