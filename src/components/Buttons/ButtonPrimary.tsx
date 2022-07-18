@@ -35,11 +35,7 @@ const ButtonPrimary: React.FC<{
                     icon={icon}
                     className={`
                         w-4 md:w-5 lg:w-6 mr-2 transition-colors
-                        ${
-                            isDarkMode
-                                ? 'text-primary-dark'
-                                : 'text-primary-light'
-                        }
+                        ${isDarkMode ? 'text-color-dark' : 'text-color-light'}
                         ${iconCss ? iconCss : ''}
                     `}
                 />

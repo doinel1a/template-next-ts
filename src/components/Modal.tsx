@@ -61,16 +61,14 @@ const Modal: React.FC<IModalProps> = ({
                 <div className='flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0'>
                     <div
                         className={`relative rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full ${
-                            isDarkMode
-                                ? 'bg-b-primary-dark'
-                                : 'bg-b-primary-light'
+                            isDarkMode ? 'bg-primary-dark' : 'bg-primary-light'
                         }`}
                     >
                         <div
                             className={`px-4 pt-5 pb-4 sm:p-6 sm:pb-4  ${
                                 isDarkMode
-                                    ? 'bg-b-primary-dark'
-                                    : 'bg-b-primary-light'
+                                    ? 'bg-primary-dark'
+                                    : 'bg-primary-light'
                             }`}
                         >
                             <div className='sm:flex sm:items-start'>

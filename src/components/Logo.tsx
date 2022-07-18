@@ -14,7 +14,7 @@ const Logo: React.FC<{ text: string; ariaLabel: string }> = ({
                 tabIndex={0}
                 className={`
                     text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer transition-colors
-                    ${isDarkMode ? 'text-primary-dark' : 'text-primary-light'}
+                    ${isDarkMode ? 'text-color-dark' : 'text-color-light'}
                 `}
             >
                 {text}
