@@ -35,6 +35,25 @@
     h6 {
         @apply md:text-lg lg:text-xl;
     }
+
+    label,
+    input,
+    select,
+    option {
+        @apply md:text-lg lg:text-xl transition-colors;
+    }
+
+    label {
+        @apply font-medium;
+    }
+
+    input {
+        @apply w-full ml-2 p-2 outline-none text-primary-dark;
+    }
+
+    input:disabled {
+        @apply bg-gray-200;
+    }
 }
 
 @layer components {
