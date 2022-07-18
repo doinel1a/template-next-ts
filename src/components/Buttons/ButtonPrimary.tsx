@@ -10,16 +10,18 @@ const ButtonPrimary: React.FC<{
     type: 'button' | 'submit';
     text: string;
     icon?: IconProp;
+    disabled?: boolean;
     spanCss?: string;
     iconCss?: string;
     stateCss?: string;
     onClick?: MouseEventHandler;
-}> = ({ type, text, icon, spanCss, iconCss, stateCss, onClick }) => {
+}> = ({ type, text, icon, disabled, spanCss, iconCss, stateCss, onClick }) => {
     const { isDarkMode } = useStateContext();
 
     return (
         <button
             type={type}
+            disabled={disabled}
             className={`
                 btn group 
                 ${

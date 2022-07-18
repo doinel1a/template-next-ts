@@ -7,17 +7,30 @@ import useStateContext from '../../context/ContextProvider';
 const ButtonIcon: React.FC<{
     type: 'button' | 'submit';
     icon: IconProp;
+    title?: string;
     ariaLabel: string;
+    disabled?: boolean;
     iconCss?: string;
     stateCss?: string;
     onClick?: MouseEventHandler;
-}> = ({ type, icon, ariaLabel, stateCss, iconCss, onClick }) => {
+}> = ({
+    type,
+    icon,
+    title,
+    ariaLabel,
+    disabled,
+    stateCss,
+    iconCss,
+    onClick,
+}) => {
     const { isDarkMode } = useStateContext();
 
     return (
         <button
             type={type}
+            title={title}
             aria-label={ariaLabel}
+            disabled={disabled}
             className={`
                 p-1 rounded-full
                 ${isDarkMode ? '' : ''}
