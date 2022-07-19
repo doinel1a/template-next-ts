@@ -9,12 +9,7 @@ const Header: React.FC = () => {
     const { isDarkMode, toggleDarkMode } = useStateContext();
 
     return (
-        <header
-            className={`
-                w-full h-[var(--header-h)] sticky top-0 flex justify-center px-2 transition-colors
-                ${isDarkMode ? 'bg-primary-dark' : 'bg-primary-light'}
-            `}
-        >
+        <header>
             <div className='h-full container flex items-center'>
                 <nav className='mr-auto'>
                     <Logo

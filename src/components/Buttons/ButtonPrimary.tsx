@@ -2,8 +2,6 @@ import { MouseEventHandler } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import useStateContext from '../../context/ContextProvider';
-
 import Span from '../Text/Span';
 
 const ButtonPrimary: React.FC<{
@@ -16,30 +14,17 @@ const ButtonPrimary: React.FC<{
     stateCss?: string;
     onClick?: MouseEventHandler;
 }> = ({ type, text, icon, disabled, spanCss, iconCss, stateCss, onClick }) => {
-    const { isDarkMode } = useStateContext();
-
     return (
         <button
             type={type}
             disabled={disabled}
-            className={`
-                btn group 
-                ${
-                    stateCss
-                        ? stateCss
-                        : 'bg-blue-500 hover:bg-blue-700 focus:bg-blue-700'
-                }
-            `}
+            className={`btn-base ${stateCss ? stateCss : 'btn-primary'}`}
             onClick={onClick}
         >
             {icon ? (
                 <FontAwesomeIcon
                     icon={icon}
-                    className={`
-                        w-4 md:w-5 lg:w-6 mr-2 transition-colors
-                        ${isDarkMode ? 'text-color-dark' : 'text-color-light'}
-                        ${iconCss ? iconCss : ''}
-                    `}
+                    className={iconCss ? iconCss : ''}
                 />
             ) : (
                 <></>

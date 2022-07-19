@@ -1,8 +1,6 @@
 import { ChangeEventHandler, FocusEventHandler } from 'react';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
-import useStateContext from '../../context/ContextProvider';
-
 import ButtonIcon from '../Buttons/ButtonIcon';
 
 const InputNumber: React.FC<{
@@ -30,17 +28,9 @@ const InputNumber: React.FC<{
     onBlur,
     onDelete,
 }) => {
-    const { isDarkMode } = useStateContext();
-
     return (
         <div className='flex flex-col'>
-            <label
-                htmlFor={id}
-                className={`
-                    ${isDarkMode ? 'text-color-dark' : 'text-color-light'}
-                    ${labelCss ? labelCss : ''}
-                `}
-            >
+            <label htmlFor={id} className={labelCss ? labelCss : ''}>
                 {label}
             </label>
             {clean ? (
@@ -57,10 +47,7 @@ const InputNumber: React.FC<{
                                 ? placeholder
                                 : `Insert ${label.toLowerCase()}`
                         }
-                        className={` 
-                            rounded-lg 
-                            ${inputCss ? inputCss : ''}
-                        `}
+                        className={inputCss ? inputCss : ''}
                         onChange={onChange}
                         onFocus={onFocus}
                         onBlur={onBlur}
@@ -89,10 +76,7 @@ const InputNumber: React.FC<{
                             ? placeholder
                             : `Insert ${label.toLowerCase()}`
                     }
-                    className={` 
-                        rounded-lg 
-                        ${inputCss ? inputCss : ''}
-                    `}
+                    className={inputCss ? inputCss : ''}
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}

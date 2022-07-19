@@ -2,10 +2,8 @@ import { NextPage } from 'next';
 import { useState } from 'react';
 import { faCheckCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-import useStateContext from '../context/ContextProvider';
-
 import MetaHead from '../components/MetaHead';
-import Modal from '../components/Modal';
+
 import Heading from '../components/Text/Heading';
 import Paragraph from '../components/Text/Paragraph';
 import ButtonPrimary from '../components/Buttons/ButtonPrimary';
@@ -14,20 +12,15 @@ import ButtonTertiary from '../components/Buttons/ButtonTertiary';
 import Form from '../components/Form/Form';
 import InputText from '../components/Form/InputText';
 import InputNumber from '../components/Form/InputNumber';
+import Modal from '../components/Modal';
 
 const Home: NextPage = () => {
-    const { isDarkMode } = useStateContext();
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
     return (
         <>
             <MetaHead />
-            <main
-                className={`
-                    w-full min-h-screen z-0 flex lg:justify-center items-center mb-[var(--footer-h)] transition-colors
-                    ${isDarkMode ? 'bg-secondary-dark' : 'bg-secondary-light'}
-                `}
-            >
+            <main>
                 <Modal
                     isModalVisible={isModalVisible}
                     setIsModalVisible={setIsModalVisible}
@@ -62,7 +55,7 @@ const Home: NextPage = () => {
                         />
                         <ButtonTertiary
                             type='button'
-                            text='Button Terniary'
+                            text='Button Tertiary'
                             icon={faCheckCircle}
                         />
                     </div>

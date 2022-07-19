@@ -14,16 +14,31 @@ const useDarkMode = (): IUseDarkModeOutput => {
         if (!localStorage.getItem(THEME_KEY)) {
             const theme = themePreference();
 
-            localStorage.setItem(THEME_KEY, JSON.stringify(theme));
             setIsDarkMode(theme);
+            localStorage.setItem(THEME_KEY, JSON.stringify(theme));
+
+            return;
         }
 
-        setIsDarkMode(
-            localStorage.getItem(THEME_KEY) === 'true' ? true : false
-        );
+        if (localStorage.getItem(THEME_KEY) === 'true') {
+            document.documentElement.classList.add('dark');
+            setIsDarkMode(true);
+
+            return;
+        } else if (localStorage.getItem(THEME_KEY) === 'false') {
+            document.documentElement.classList.remove('dark');
+            setIsDarkMode(false);
+
+            return;
+        }
+
+        setIsDarkMode(true);
     }, []);
 
     useEffect(() => {
+        isDarkMode
+            ? document.documentElement.classList.add('dark')
+            : document.documentElement.classList.remove('dark');
         localStorage.setItem(THEME_KEY, JSON.stringify(isDarkMode));
     }, [isDarkMode]);
 

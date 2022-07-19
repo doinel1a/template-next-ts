@@ -3,15 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-medium transition-colors;
-    }
-
     h1 {
         @apply text-4xl md:text-5xl lg:text-6xl;
     }
@@ -36,29 +27,126 @@
         @apply md:text-lg lg:text-xl;
     }
 
-    label,
-    input,
-    select,
-    option {
-        @apply md:text-lg lg:text-xl transition-colors;
+    header {
+        @apply w-full h-[var(--header-h)] sticky top-0;
+    }
+
+    main {
+        @apply w-full min-h-screen z-0 flex lg:justify-center items-center mb-[var(--footer-h)] bg-secondary-light dark:bg-secondary-dark transition-colors;
+    }
+
+    footer {
+        @apply w-full h-[var(--footer-h)] fixed bottom-0 cursor-default;
+    }
+
+    form {
+        @apply flex flex-col justify-between p-4 rounded-lg bg-slate-400 dark:bg-slate-300 transition-colors;
     }
 
     label {
-        @apply font-medium;
+        @apply text-color-dark dark:text-color-light;
     }
 
     input {
-        @apply w-full ml-2 p-2 outline-none text-primary-dark;
+        @apply w-full ml-2 p-2 outline-none rounded-lg text-color-light;
     }
 
     input:disabled {
         @apply bg-gray-200;
     }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    label {
+        @apply font-medium;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span {
+        @apply text-color-light dark:text-color-dark;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    label,
+    select,
+    option {
+        @apply transition-colors;
+    }
+
+    p,
+    label,
+    input,
+    select,
+    option {
+        @apply md:text-lg lg:text-xl;
+    }
+
+    header,
+    footer {
+        @apply flex justify-center items-center px-2 bg-primary-light dark:bg-primary-dark transition-colors;
+    }
 }
 
 @layer components {
-    .btn {
-        @apply flex justify-center items-center rounded-lg transition-colors px-5 md:px-6 lg:px-7 py-3 lg:py-4;
+    .btn-base {
+        @apply flex justify-center items-center rounded-lg px-5 md:px-6 lg:px-7 py-3 lg:py-4 font-medium transition-colors;
+    }
+
+    .btn-primary {
+        @apply bg-blue-500 hover:bg-blue-700 focus:bg-blue-700;
+    }
+
+    .btn-secondary {
+        @apply border border-black dark:border-white bg-transparent hover:bg-gray-400 focus:bg-gray-400;
+    }
+
+    .btn-tertiary {
+        @apply bg-transparent;
+    }
+
+    .btn-icon {
+        @apply p-1 rounded-full;
+    }
+
+    .btn-base span {
+        @apply text-sm md:text-base lg:text-lg text-color-light dark:text-color-dark transition-colors;
+    }
+
+    .btn-base svg {
+        @apply w-4 md:w-5 lg:w-6 mr-2 text-color-light dark:text-color-dark transition-colors;
+    }
+
+    .btn-tertiary span,
+    .btn-tertiary svg {
+        @apply !text-blue-500 dark:!text-blue-300;
+    }
+
+    .btn-tertiary:hover span,
+    .btn-tertiary:hover svg,
+    .btn-tertiary:focus span,
+    .btn-tertiary:focus svg {
+        @apply !text-blue-600 dark:!text-blue-400;
+    }
+
+    .btn-icon svg {
+        @apply w-6 md:w-7 lg:w-8 text-3xl lg:text-4xl;
     }
 }
 
