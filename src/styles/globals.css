@@ -180,6 +180,23 @@
     min-height: calc(100% - (var(--header-h) + var(--footer-h)));
 }
 
+.loader {
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }

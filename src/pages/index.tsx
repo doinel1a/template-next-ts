@@ -13,6 +13,7 @@ import InputText from '../components/Form/InputText';
 import InputNumber from '../components/Form/InputNumber';
 import Modal, { ModalManager } from '../components/Modal';
 import Toast, { ToastManager } from '../components/Toast';
+import Loader, { LoaderManager } from '../components/Loader';
 
 const Home: NextPage = () => {
     const openModal = () => {
@@ -43,6 +44,14 @@ const Home: NextPage = () => {
         );
     };
 
+    const openLoader = () => {
+        LoaderManager.open(<Loader />);
+
+        setTimeout(() => {
+            LoaderManager.close();
+        }, 3000);
+    };
+
     return (
         <>
             <MetaHead />
@@ -64,7 +73,6 @@ const Home: NextPage = () => {
                             type='button'
                             text='Modal'
                             spanCss='!text-white'
-                            iconCss='!text-white'
                             onClick={() => openModal()}
                         />
                         <ButtonSecondary
@@ -74,8 +82,8 @@ const Home: NextPage = () => {
                         />
                         <ButtonTertiary
                             type='button'
-                            text='Button Tertiary'
-                            icon={faCheckCircle}
+                            text='Loader'
+                            onClick={() => openLoader()}
                         />
                     </div>
                     <Form onSubmit={(e) => e.preventDefault()}>
