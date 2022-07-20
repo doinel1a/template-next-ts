@@ -39,7 +39,7 @@ const Toast: React.FC<IToastProps> = ({
 
     return (
         <div className='absolute z-10'>
-            <div className='fixed bottom-12 left-4 right-4 sm:left-auto sm:right-4'>
+            <div className='fixed bottom-12 left-4 right-4 sm:left-auto sm:right-4 slide-in-rhs transition-all'>
                 <div className='w-full sm:w-96 h-44 sm:h-40 md:h-48 lg:h-52 progress rounded-lg bg-neutral-300 dark:bg-neutral-500 before:bg-neutral-400 before:dark:bg-neutral-600 transition-colors'></div>
                 <div className='absolute top-0 p-4'>
                     <header className='flex justify-between items-center'>

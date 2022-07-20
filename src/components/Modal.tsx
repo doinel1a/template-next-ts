@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useRef, useState } from 'react';
+import { SyntheticEvent, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faWarning } from '@fortawesome/free-solid-svg-icons';
@@ -33,23 +33,15 @@ const Modal: React.FC<IModalProps> = ({
     btnSecondaryContent,
     btnSecondaryCallback,
 }) => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
     const modalRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        setIsOpen(true);
+        document.body.classList.add('overflow-hidden');
 
         return () => {
-            setIsOpen(false);
             document.body.classList.remove('overflow-hidden');
         };
     }, []);
-
-    useEffect(() => {
-        isOpen
-            ? document.body.classList.add('overflow-hidden')
-            : document.body.classList.remove('overflow-hidden');
-    }, [isOpen]);
 
     const handleFocus = (e: FocusEvent<HTMLDivElement>) => {
         modalRef.current?.setAttribute('tabindex', '0');
@@ -66,16 +58,19 @@ const Modal: React.FC<IModalProps> = ({
             className='relative z-10'
             onClick={() => ModalManager.close()}
         >
-            <div className='fixed inset-0 bg-gray-500 bg-opacity-50 transition-opacity backdrop-blur-sm'></div>
+            <div className='fixed inset-0 bg-gray-500 bg-opacity-50 fade-in transition-all' />
 
             <div
                 ref={modalRef}
                 className='fixed z-10 inset-0'
                 onBlur={handleFocus}
             >
-                <div className='min-h-full flex justify-center items-end sm:items-center p-4 sm:p-0'>
+                <div
+                    ref={modalRef}
+                    className='min-h-full flex justify-center items-end sm:items-center p-4 sm:p-0'
+                >
                     <div
-                        className='sm:max-w-lg sm:w-full relative sm:my-8 rounded-lg overflow-hidden bg-primary-light dark:bg-primary-dark transform transition-all'
+                        className='sm:max-w-lg sm:w-full relative sm:my-8 rounded-lg overflow-hidden bg-primary-light dark:bg-primary-dark scale-up transition-all'
                         onClick={stopPropagation}
                     >
                         <div className='px-4 pt-5 pb-4 sm:p-6 sm:pb-4 bg-secondary-light dark:bg-secondary-dark'>

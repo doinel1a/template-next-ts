@@ -188,6 +188,51 @@
     animation: rotation 1.5s linear infinite;
 }
 
+.fade-in {
+    animation: fade-in 200ms linear forwards;
+}
+
+.scale-up {
+    animation: scale-up 200ms linear 0.05ms forwards;
+}
+
+.slide-in-rhs {
+    animation: slide-in-rhs 200ms linear forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(4px);
+    }
+}
+
+@keyframes scale-up {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-in-rhs {
+    from {
+        opacity: 0;
+        transform: translate(35%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);
