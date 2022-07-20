@@ -27,7 +27,7 @@
         @apply md:text-lg lg:text-xl;
     }
 
-    header {
+    .header {
         @apply w-full h-[var(--header-h)] sticky top-0;
     }
 
@@ -98,7 +98,7 @@
         @apply md:text-lg lg:text-xl;
     }
 
-    header,
+    .header,
     footer {
         @apply flex justify-center items-center px-2 bg-primary-light dark:bg-primary-dark transition-colors;
     }
@@ -122,7 +122,7 @@
     }
 
     .btn-icon {
-        @apply p-1 rounded-full;
+        @apply p-1 rounded-full text-color-light dark:text-color-dark;
     }
 
     .btn-base span {
@@ -153,6 +153,18 @@
 :root {
     --header-h: 3.5rem;
     --footer-h: 2.5rem;
+    --progress-perc: 100%;
+}
+
+.progress:before {
+    content: '';
+    width: var(--progress-perc);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-radius: 0.5rem 0 0 0.5rem;
 }
 
 * {

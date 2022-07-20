@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { faCheckCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 
 import MetaHead from '../components/MetaHead';
 
@@ -12,6 +12,7 @@ import Form from '../components/Form/Form';
 import InputText from '../components/Form/InputText';
 import InputNumber from '../components/Form/InputNumber';
 import Modal, { ModalManager } from '../components/Modal';
+import Toast, { ToastManager } from '../components/Toast';
 
 const Home: NextPage = () => {
     const openModal = () => {
@@ -26,6 +27,18 @@ const Home: NextPage = () => {
                 btnPrimaryContent='Deactivate'
                 btnPrimaryCallback={() => alert('Callback')}
                 btnSecondaryContent='Cancel'
+            />
+        );
+    };
+
+    const openToast = () => {
+        ToastManager.open(
+            <Toast
+                title='Toast'
+                content='Are you sure you want to deactivate
+                your account? All of your data will
+                be permanently removed. This action
+                cannot be undone.'
             />
         );
     };
@@ -49,16 +62,15 @@ const Home: NextPage = () => {
                     <div className='flex flex-col gap-y-6'>
                         <ButtonPrimary
                             type='button'
-                            text='Button Primary'
-                            icon={faEnvelope}
+                            text='Modal'
                             spanCss='!text-white'
                             iconCss='!text-white'
                             onClick={() => openModal()}
                         />
                         <ButtonSecondary
                             type='button'
-                            text='Button Secondary'
-                            icon={faCheckCircle}
+                            text='Toast'
+                            onClick={() => openToast()}
                         />
                         <ButtonTertiary
                             type='button'

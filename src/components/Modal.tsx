@@ -97,18 +97,18 @@ const Modal: React.FC<IModalProps> = ({
                                 )}
 
                                 <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
-                                    <div id='modal-title'>
+                                    <header id='modal-title'>
                                         <Paragraph
                                             text={title}
                                             customCss='text-lg md:text-xl lg:text-2xl font-medium'
                                         />
-                                    </div>
-                                    <div className='mt-4'>
+                                    </header>
+                                    <section className='mt-4'>
                                         <Paragraph
                                             text={content}
                                             customCss='text-color-light dark:text-color-dark'
                                         />
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
                         </div>
@@ -160,6 +160,7 @@ const renderModal = () => {
     if (!node) {
         node = document.createElement('div');
         node.id = 'modal';
+
         document.body.appendChild(node);
     }
 
