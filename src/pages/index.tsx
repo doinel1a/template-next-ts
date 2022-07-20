@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import { useState } from 'react';
 import { faCheckCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 import MetaHead from '../components/MetaHead';
@@ -12,19 +11,29 @@ import ButtonTertiary from '../components/Buttons/ButtonTertiary';
 import Form from '../components/Form/Form';
 import InputText from '../components/Form/InputText';
 import InputNumber from '../components/Form/InputNumber';
-import Modal from '../components/Modal';
+import Modal, { ModalManager } from '../components/Modal';
 
 const Home: NextPage = () => {
-    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+    const openModal = () => {
+        ModalManager.open(
+            <Modal
+                type='green'
+                title='Deactivate account'
+                content='Are you sure you want to deactivate
+                your account? All of your data will
+                be permanently removed. This action
+                cannot be undone.'
+                btnPrimaryContent='Deactivate'
+                btnPrimaryCallback={() => alert('Callback')}
+                btnSecondaryContent='Cancel'
+            />
+        );
+    };
 
     return (
         <>
             <MetaHead />
             <main>
-                <Modal
-                    isModalVisible={isModalVisible}
-                    setIsModalVisible={setIsModalVisible}
-                />
                 <section className='w-full h-full flex lg:justify-center lg:items-center flex-wrap gap-x-6 lg:gap-x-20 gap-y-6 px-4 py-4'>
                     <div className='flex flex-col gap-y-6'>
                         <Heading type='h1' text='Heading 1' />
@@ -44,9 +53,7 @@ const Home: NextPage = () => {
                             icon={faEnvelope}
                             spanCss='!text-white'
                             iconCss='!text-white'
-                            onClick={() =>
-                                setIsModalVisible((prevState) => !prevState)
-                            }
+                            onClick={() => openModal()}
                         />
                         <ButtonSecondary
                             type='button'
