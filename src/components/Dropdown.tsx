@@ -10,7 +10,7 @@ const Dropdown: React.FC<{
 }> = ({ isOpen, setIsOpen }) => {
     return (
         <div className='relative inline-block text-left'>
-            <div aria-expanded='true' aria-haspopup='true'>
+            <div aria-expanded='true' aria-haspopup='true' aria-role='button'>
                 <ButtonIcon
                     type='button'
                     icon={faGear}
@@ -20,20 +20,32 @@ const Dropdown: React.FC<{
             </div>
             {isOpen && (
                 <div
-                    className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-500 ring-1 ring-black ring-opacity-5 focus:outline-none'
+                    className='w-56 absolute right-0 mt-2 origin-top-right rounded-lg shadow-lg bg-white dark:bg-gray-500 fade-in'
                     role='menu'
                     aria-orientation='vertical'
                     aria-labelledby='menu-button'
                     tabIndex={-1}
                 >
-                    <div className='flex flex-col gap-y-4 p-4' role='none'>
-                        <div role='menuitem' tabIndex={-1}>
+                    <div className='flex flex-col gap-y-2 p-2' role='none'>
+                        <div
+                            role='menuitem'
+                            tabIndex={-1}
+                            className='p-2 rounded-lg hover:bg-gray-200 cursor-pointer'
+                        >
                             <Paragraph text='Option 1' />
                         </div>
-                        <div role='menuitem' tabIndex={-1}>
+                        <div
+                            role='menuitem'
+                            tabIndex={-1}
+                            className='p-2 rounded-lg hover:bg-gray-200 cursor-pointer'
+                        >
                             <Paragraph text='Option 2' />
                         </div>
-                        <div role='menuitem' tabIndex={-1}>
+                        <div
+                            role='menuitem'
+                            tabIndex={-1}
+                            className='p-2 rounded-lg hover:bg-gray-200 cursor-pointer'
+                        >
                             <Paragraph text='Option 3' />
                         </div>
                     </div>
