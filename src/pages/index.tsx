@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 
 import MetaHead from '../components/MetaHead';
 
@@ -9,8 +8,6 @@ import ButtonPrimary from '../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../components/Buttons/ButtonSecondary';
 import ButtonTertiary from '../components/Buttons/ButtonTertiary';
 import Form from '../components/Form/Form';
-import InputText from '../components/Form/InputText';
-import InputNumber from '../components/Form/InputNumber';
 import Modal, { ModalManager } from '../components/Modal';
 import Toast, { ToastManager } from '../components/Toast';
 import Loader, { LoaderManager } from '../components/Loader';
@@ -86,26 +83,7 @@ const Home: NextPage = () => {
                             onClick={() => openLoader()}
                         />
                     </div>
-                    <Form onSubmit={(e) => e.preventDefault()}>
-                        <InputText
-                            id='test1'
-                            label='Test 1'
-                            value='Test 1'
-                            clean={true}
-                        />
-                        <InputText
-                            id='test2'
-                            label='Test 2'
-                            value='Test 2'
-                            clean={true}
-                        />
-                        <InputNumber
-                            id='test3'
-                            label='Test 3'
-                            value='Test 3'
-                            clean={true}
-                        />
-                    </Form>
+                    <Form onSubmit={(e) => e.preventDefault()} />
                 </section>
             </main>
         </>

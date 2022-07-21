@@ -48,7 +48,7 @@
     }
 
     input {
-        @apply w-full ml-2 p-2 outline-none rounded-lg text-color-light;
+        @apply w-full ml-2 p-2 outline-none text-color-light border border-gray-200;
     }
 
     input:disabled {
